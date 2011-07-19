@@ -1,0 +1,14 @@
+<!-- HPONCFG VERSION = "3.0" -->
+<RIBCL VERSION="2.1">
+  <LOGIN USER_LOGIN="Administrator" PASSWORD="password">
+    <RIB_INFO MODE="write">
+      <MOD_NETWORK_SETTINGS>
+        <IP_ADDRESS VALUE = "<%= ip_address %>"/>
+        <SUBNET_MASK VALUE = "<%= subnet_mask %>"/>
+        <GATEWAY_IP_ADDRESS VALUE = "<%= gateway %>"/>
+        <DHCP_ENABLE VALUE = "N"/>
+        <DNS_NAME value="<%= hostname %>"/>
+      </MOD_NETWORK_SETTINGS>
+    </RIB_INFO>
+  </LOGIN>
+</RIBCL>

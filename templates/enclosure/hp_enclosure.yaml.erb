@@ -1,0 +1,48 @@
+<%
+
+def print(arg, depth=0)
+  to_print = ""
+  if arg.class == String
+    to_print = " '" + arg + "'"
+    if depth != 0 
+      to_print += "\n"
+    end
+  end
+  if arg.class == Hash
+    if depth == 0
+      to_print += "\n"
+    end
+    arg.each do |key,value|
+      to_print += "  " + "  " * depth
+      to_print += key+":"
+      to_print += print(value, depth+1)
+    end
+  end
+  if arg.class == Array
+    to_print += "\n"
+    arg.each do |elem|
+      to_print += "  " + "  " * depth
+      to_print += "-"
+      to_print += "\n"
+      to_print += print(elem, depth+1)
+    end
+  end
+  return to_print
+end
+
+-%>
+<% if ! oa.to_s.empty? -%>
+oa: <%= print(oa) %>
+<% end -%>
+<% if ! power.to_s.empty? -%>
+power: <%= print(power) %>
+<% end -%>
+<% if ! fan.to_s.empty? -%>
+fan: <%= print(fan) %>
+<% end -%>
+<% if ! interconnect.to_s.empty? -%>
+interconnect: <%= print(interconnect) %>
+<% end -%>
+<% if ! blade.to_s.empty? -%>
+blade: <%= print(blade) %>
+<% end -%>
