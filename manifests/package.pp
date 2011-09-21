@@ -15,4 +15,16 @@ class hp-loading::package {
       ensure => installed;
   }
 
+  service {
+    "hp-health":
+      enable    => true,
+      pattern   => "(hpasmlited)|(hpasmxld)",
+      ensure    => running,
+      require   => Package["hp-health"];
+    "hp-asrd":
+      enable    => true,
+      ensure    => running,
+      require   => Package["hp-health"];
+  }
+
 }
